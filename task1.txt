@@ -1,0 +1,72 @@
+import pandas as pd
+
+netflix_data = pd.read_csv("/content/netflix_titles.csv")
+netflix_data
+
+#identify null values are present or not
+print(netflix_data.isnull())
+
+#removing duplicate values
+print(netflix_data.drop_duplicates())
+
+# Convert all string columns to lowercase
+netflix_data = netflix_data.applymap(lambda s: s.lower().strip() if type(s) == str else s)
+netflix_data
+
+#Remove extra spaces
+# Strip leading/trailing spaces for a specific column
+netflix_data['country'] = netflix_data['country'].str.strip()
+
+# Also replace multiple spaces with single space
+netflix_data['country'] = netflix_data['country'].str.replace(r'\s+', ' ', regex=True)
+netflix_data
+
+#Unify similar categories
+country_map = {
+    'usa': 'United States',
+    'u.s.a.': 'United States',
+    'united states of america': 'United States'
+}
+
+netflix_data['country'] = netflix_data['country'].replace(country_map)
+netflix_data
+
+# Convert to datetime (pandas is smart enough to parse most formats)
+netflix_data['date_added'] = pd.to_datetime(netflix_data['date_added'], errors='coerce')
+
+# Format into dd-mm-yyyy
+netflix_data['date_added'] = netflix_data['date_added'].dt.strftime('%d-%m-%Y')
+netflix_data
+
+#One liner to clean all column names
+# Make all column headers lowercase, strip spaces, and replace spaces with underscores
+
+netflix_data.columns = netflix_data.columns.str.strip().str.lower().str.replace(' ', '_')
+netflix_data
+
+#Remove special characters
+import re
+netflix_data.columns = [re.sub(r'[^a-z0-9_]', '', col) for col in netflix_data.columns]
+netflix_data.columns
+
+#Check current datatype
+print(netflix_data.dtypes)
+# Convert release_year to integer
+netflix_data['release_year'] = pd.to_numeric(netflix_data['release_year'], errors='coerce')
+
+# Convert date_added to datetime
+netflix_data['date_added'] = pd.to_datetime(netflix_data['date_added'], errors='coerce')
+
+# Convert rating, type, title, country, etc. to string (object is fine, but ensure consistency)
+netflix_data['rating'] = netflix_data['rating'].astype(str)
+netflix_data['type'] = netflix_data['type'].astype(str)
+
+#Handle duration columns
+# Separate duration into two columns
+netflix_data['duration_num'] = netflix_data['duration'].str.extract(r'(\d+)').astype(float)
+netflix_data['duration_type'] = netflix_data['duration'].str.extract(r'([a-zA-Z]+)').astype(str)
+
+#Verify again
+
+print(netflix_data.dtypes)
+
