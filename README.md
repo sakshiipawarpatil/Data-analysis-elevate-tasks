@@ -18,7 +18,7 @@ The main focus was on data analysis, visualization, and storytelling using the S
 ### Task 2: Data Visualization and storytelling
 - Analyzed sales and profit trends
 - Identified outliers and discount impact
-- Output: `task2_EDA.ipynb`
+- Output: `Elevate internship task2.docx`
 
 ### Task 3: Dashboard design
 - Built interactive Power BI dashboard
