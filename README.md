@@ -23,11 +23,11 @@ The main focus was on data analysis, visualization, and storytelling using the S
 ### Task 3: Dashboard design
 - Built interactive Power BI dashboard
 - Key visuals: Sales trends, Regional performance, Category breakdown
-- Output: `Superstore_Story.pbix`
+- Output: `Sales Dashboard(task 3)`
 
 ### Task 4: SQL for Data analysis
 - Created presentation summarizing insights & recommendations
-- Output: `Superstore_Story.pdf`
+- Output: ``
 
 ---
 
