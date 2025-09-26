@@ -13,7 +13,7 @@ The main focus was on data analysis, visualization, and storytelling using the S
 ### Task 1: Data Cleaning & Preprocessing
 - Standardized text values, removed duplicates, handled missing data
 - Converted date formats and fixed data types
-- Output: `task1_data_cleaning.ipynb`
+- Output: `task1.txt`
 
 ### Task 2: Data Visualization and storytelling
 - Analyzed sales and profit trends
