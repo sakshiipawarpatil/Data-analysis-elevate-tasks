@@ -27,7 +27,8 @@ The main focus was on data analysis, visualization, and storytelling using the S
 
 ### Task 4: SQL for Data analysis
 - Created presentation summarizing insights & recommendations
-- Output: ``
+- Output: `Task 4(sql queries).docx
+`
 
 ---
 
